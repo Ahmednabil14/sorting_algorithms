@@ -13,6 +13,7 @@ void selection_sort(int *array, size_t size)
 	size_t j = 0;
 	size_t position = 0;
 	int min = 0;
+	int flag;
 
 	if (!array)
 	{
@@ -26,11 +27,14 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[position])
 			{
 				position = j;
+				flag = 1;
 			}
 		}
 		min = array[position];
 		array[position] = array[i];
 		array[i] = min;
-		print_array(array, size);
+		if (flag == 1)
+			print_array(array, size);
+		flag = 0;
 	}
 }

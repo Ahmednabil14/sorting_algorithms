@@ -50,8 +50,8 @@ void quicksort(int arr[], size_t size, size_t start, size_t end)
 	if (start < end && end < size)
 	{
 		p_index = partitioning(arr, size, start, end);
-		quicksort(arr, size, p_index + 1, end);
 		quicksort(arr, size, start, p_index - 1);
+		quicksort(arr, size, p_index + 1, end);
 	}
 }
 

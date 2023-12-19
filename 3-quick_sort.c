@@ -2,7 +2,6 @@
 /**
  * partitioning - function that partitioning an array
  * @array: the array
- * @size: the array size
  * @start: the start of partitioning
  * @end: end of partitioning
  * Return: the pivot position

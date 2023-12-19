@@ -42,7 +42,7 @@ void quicksort(int arr[], size_t size, size_t start, size_t end)
 {
 	size_t p_index;
 
-	if (start < end)
+	if (start < end && end < size)
 	{
 		p_index = partitioning(arr, start, end);
 		print_array(arr, size);

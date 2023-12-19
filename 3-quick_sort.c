@@ -7,10 +7,13 @@
  * @end: end of partitioning
  * Return: the pivot position
 */
-size_t partitioning(int *array, size_t size, size_t start, size_t end)
+size_t partitioning(int *array, size_t start, size_t end)
 {
-	int pivot = array[end], temp;
-	size_t p_index = start, i;
+	int pivot, temp;
+	size_t p_index, i;
+
+	pivot = array[end];
+	p_index = start;
 
 	for (i = start ; i < end ; i++)
 	{
@@ -24,7 +27,6 @@ size_t partitioning(int *array, size_t size, size_t start, size_t end)
 	}
 	array[end] = array[p_index];
 	array[p_index] = pivot;
-	print_array(array, size);
 	return (p_index);
 }
 
@@ -42,14 +44,12 @@ void quicksort(int arr[], size_t size, size_t start, size_t end)
 
 	if (start < end)
 	{
-	p_index = partitioning(arr, size, start, end);
-
-		quicksort(arr, size, start, p_index - 1);
+		p_index = partitioning(arr, start, end);
+		print_array(arr, size);
 		quicksort(arr, size, p_index + 1, end);
-
+		quicksort(arr, size, start, p_index - 1);
 	}
 }
-
 
 /**
  * quick_sort - function that sorts an array of integers in

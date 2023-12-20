@@ -9,7 +9,7 @@
 */
 size_t partitioning(int *array, size_t size, size_t start, size_t end)
 {
-	int pivot, temp, falg = 0;
+	int pivot, temp, falg = 0, flag = 0;
 	size_t p_index, i;
 
 	pivot = array[end];
@@ -23,14 +23,16 @@ size_t partitioning(int *array, size_t size, size_t start, size_t end)
 			array[i] = array[p_index];
 			array[p_index] = temp;
 			falg = 1;
+			flag = 1;
 			p_index++;
 		}
+		if (falg == 1)
+			print_array(array, size);
+		falg = 0;
 	}
-	if (falg == 1)
-		print_array(array, size);
 	array[end] = array[p_index];
 	array[p_index] = pivot;
-	if (falg == 0)
+	if (flag == 1)
 		print_array(array, size);
 	return (p_index);
 }

@@ -6,8 +6,6 @@
 */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *start = *list;
-	listint_t *end;
 	listint_t *i = *list;
 	listint_t *temp;
 

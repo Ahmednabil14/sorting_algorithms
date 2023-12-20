@@ -20,6 +20,8 @@ void counting_sort(int *array, size_t size)
 		}
 	}
 	count = malloc(sizeof(int) * k + 1);
+	if (!count)
+		return;
 	for (i = 0 ; i <= k ; i++)
 	{
 		count[i] = 0;
@@ -33,6 +35,8 @@ void counting_sort(int *array, size_t size)
 		count[i] += count[i - 1];
 	}
 	temp = malloc(sizeof(int) * size);
+	if (!temp)
+		return;
 	for (i = size - 1 ; (int)i >= 0 ; i--)
 	{
 		temp[--count[array[i]]] = array[i];
